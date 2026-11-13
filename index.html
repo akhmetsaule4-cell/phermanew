@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>АгроИнвест · ТЭО: МТК на 200 голов КРС (алатауская) · Казахстан 2026</title>
+<style>
+:root{
+  --green-900:#16301f;
+  --green-700:#28563c;
+  --green-500:#417f57;
+  --green-100:#e4efe7;
+  --sand-100:#f8f5ef;
+  --sand-200:#ebe5d8;
+  --ink:#171d1a;
+  --ink-soft:#3f4a44;
+  --line:#d8d2c4;
+  --gold:#9a7426;
+  --red:#953026;
+  --amber:#b07a12;
+  --white:#ffffff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,'Noto Sans',sans-serif;
+  color:var(--ink);
+  background:var(--sand-100);
+  line-height:1.75;
+  font-size:18px;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+h1,h2,h3,h4{font-weight:700;color:var(--green-900);line-height:1.3;letter-spacing:-0.01em}
+h1{font-size:clamp(2rem,3.6vw,3rem)}
+h2{font-size:clamp(1.6rem,2.6vw,2.2rem);margin-bottom:.7rem}
+h3{font-size:1.35rem;margin-bottom:.5rem}
+p{margin-bottom:1rem;color:var(--ink-soft)}
+a{color:var(--green-700);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* сетка */
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+section{padding:80px 0;scroll-margin-top:88px}
+section.alt{background:var(--white)}
+section.dark{background:var(--green-900);color:#e9f0ec}
+section.dark h2,section.dark h3{color:#fff}
+section.dark p{color:#c8d8cd}
+
+/* шапка */
+header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(248,245,239,.96);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+.brand{
+  font-weight:800;font-size:1.15rem;color:var(--green-900);letter-spacing:.01em;
+  display:flex;align-items:center;gap:8px;
+}
+.brand span{color:var(--green-500)}
+.nav ul{list-style:none;display:flex;gap:4px;font-size:.92rem;align-items:center}
+.nav ul li a{
+  color:var(--ink-soft);font-weight:500;padding:24px 12px;display:block;
+  border-bottom:3px solid transparent;transition:color .15s,border-color .15s;
+}
+.nav ul li a:hover{color:var(--green-700);text-decoration:none}
+.nav ul li a.active{color:var(--green-900);border-bottom-color:var(--green-500);font-weight:700}
+
+/* бургер */
+.burger{
+  display:none;background:none;border:none;cursor:pointer;
+  width:44px;height:44px;padding:8px;border-radius:6px;
+}
+.burger span{display:block;height:3px;background:var(--green-900);margin:5px 0;border-radius:2px;transition:.2s}
+.burger.open span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+
+.mobile-menu{
+  display:none;position:absolute;top:72px;left:0;right:0;
+  background:var(--white);border-bottom:1px solid var(--line);
+  padding:8px 24px 20px;flex-direction:column;
+}
+.mobile-menu.open{display:flex}
+.mobile-menu a{
+  padding:16px 0;color:var(--ink);font-size:1.05rem;font-weight:500;
+  border-bottom:1px solid var(--sand-200);
+}
+.mobile-menu a:last-child{border-bottom:none}
+
+@media(max-width:980px){
+  .nav ul{display:none}
+  .burger{display:block}
+  .nav{height:64px}
+  .mobile-menu{top:64px}
+}
+@media(min-width:981px){
+  .mobile-menu{display:none!important}
+}
+
+/* первый экран */
+.hero{
+  background:linear-gradient(135deg,var(--green-900) 0%,var(--green-700) 100%);
+  color:#eaf2ec;padding:96px 0 80px;
+}
+.hero .tag{
+  display:inline-block;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;
+  color:#bdd4c4;border:1px solid #557a60;padding:8px 14px;border-radius:3px;margin-bottom:26px;
+  font-weight:600;
+}
+.hero h1{color:#fff;max-width:880px;margin-bottom:24px}
+.hero .lead{color:#cbd9cf;font-size:1.15rem;max-width:760px;margin-bottom:40px;line-height:1.7}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;max-width:1000px}
+.hero-stats .stat{
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.14);
+  padding:20px 22px;border-radius:8px;
+}
+.hero-stats .n{font-size:1.55rem;color:#fff;font-weight:800;letter-spacing:-0.01em;line-height:1.2}
+.hero-stats .l{font-size:.85rem;color:#b4cab9;text-transform:uppercase;letter-spacing:.06em;margin-top:6px;line-height:1.4}
+@media(max-width:800px){.hero-stats{grid-template-columns:repeat(2,1fr)}}
+
+/* карточки */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:28px}
+@media(max-width:960px){.grid-3,.grid-2{grid-template-columns:1fr}}
+.card{
+  background:var(--white);border:1px solid var(--line);border-radius:10px;padding:30px 26px;
+  display:flex;flex-direction:column;transition:box-shadow .2s,transform .2s;
+}
+.card:hover{box-shadow:0 10px 30px rgba(22,48,31,.1);transform:translateY(-3px)}
+.card .badge{
+  align-self:flex-start;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;
+  background:var(--green-100);color:var(--green-700);padding:5px 12px;border-radius:3px;
+  margin-bottom:16px;font-weight:700;
+}
+.card.optimal{border-color:var(--green-500);border-width:2px}
+.card.premium{border-color:var(--gold);border-width:2px}
+.card .price{font-size:2rem;color:var(--green-900);font-weight:800;margin-bottom:6px;letter-spacing:-0.02em}
+.card .price small{font-size:1rem;color:var(--ink-soft);font-weight:500}
+.card .sub{font-size:.95rem;color:var(--ink-soft);margin-bottom:12px}
+.card ul{list-style:none;margin-top:16px;font-size:.98rem}
+.card ul li{padding:9px 0 9px 22px;position:relative;color:var(--ink-soft);border-bottom:1px dashed var(--sand-200)}
+.card ul li:last-child{border-bottom:none}
+.card ul li::before{content:'—';position:absolute;left:0;color:var(--green-500);font-weight:700}
+.card .foot{margin-top:auto;padding-top:18px;border-top:1px solid var(--sand-200);font-size:.94rem;color:var(--ink-soft);line-height:1.9}
+.card .foot strong{color:var(--green-900);font-weight:700}
+
+/* таблицы */
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--white);-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;font-size:.96rem;min-width:660px}
+th,td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--sand-200);vertical-align:top}
+th{
+  background:var(--green-900);color:#e0ebe3;font-weight:700;font-size:.82rem;
+  text-transform:uppercase;letter-spacing:.04em;line-height:1.4;
+}
+tbody tr:nth-child(even){background:#fbf9f4}
+tbody tr:hover{background:var(--green-100)}
+tbody tr:last-child td{border-bottom:none}
+td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:500}
+th.num{text-align:right}
+tr.total{background:var(--green-100)!important}
+tr.total td{color:var(--green-900);border-top:2px solid var(--green-500);font-weight:800}
+
+/* риски */
+.risk-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:36px}
+@media(max-width:960px){.risk-grid{grid-template-columns:1fr}}
+.risk-card{
+  background:var(--white);border-left:5px solid var(--amber);border-radius:8px;
+  padding:26px 26px 22px;border-top:1px solid var(--line);
+  border-right:1px solid var(--line);border-bottom:1px solid var(--line);
+}
+.risk-card.high{border-left-color:var(--red)}
+.risk-card.med{border-left-color:var(--amber)}
+.risk-card.low{border-left-color:var(--green-500)}
+.risk-card h4{
+  font-size:1.1rem;margin-bottom:10px;display:flex;align-items:center;
+  justify-content:space-between;gap:12px;flex-wrap:wrap;
+}
+.risk-level{
+  font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;
+  border-radius:3px;font-weight:800;white-space:nowrap;
+}
+.lvl-high{background:#f3dbd6;color:var(--red)}
+.lvl-med{background:#f5ead2;color:var(--amber)}
+.lvl-low{background:var(--green-100);color:var(--green-700)}
+.risk-card p{font-size:.98rem;margin-bottom:10px}
+.risk-card .mit{font-size:.94rem;background:var(--sand-100);padding:14px 16px;border-radius:6px;color:var(--green-900);margin-top:10px;line-height:1.7}
+.risk-card .mit b{color:var(--green-700)}
+
+/* стресс-тест */
+.sens{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:30px;margin-top:32px}
+.sens-row{
+  display:grid;grid-template-columns:280px 1fr 160px;gap:18px;align-items:center;
+  padding:14px 0;border-bottom:1px dashed var(--sand-200);font-size:1rem;
+}
+.sens-row:last-child{border-bottom:none}
+.sens-row .lbl{color:var(--ink-soft);font-weight:500}
+.sens-row .bar{height:12px;background:var(--sand-200);border-radius:6px;overflow:hidden}
+.sens-row .bar span{display:block;height:100%;background:linear-gradient(90deg,var(--green-500),var(--green-700))}
+.sens-row .val{text-align:right;font-variant-numeric:tabular-nums;font-weight:700;color:var(--green-900)}
+@media(max-width:740px){
+  .sens-row{grid-template-columns:1fr;gap:8px}
+  .sens-row .val{text-align:left}
+}
+
+/* выделенные блоки */
+.callout{
+  background:linear-gradient(135deg,#fff7e7,#f8ecd4);
+  border:1px solid #e6d3a3;border-radius:10px;padding:26px 30px;margin:30px 0;
+}
+.callout h4{color:#7a5d18;margin-bottom:10px;font-size:1.15rem;font-weight:700}
+.callout p{color:#5c4a1c;margin-bottom:0;font-size:1.02rem}
+.callout.green{background:var(--green-100);border-color:#bcd6c6}
+.callout.green h4{color:var(--green-700)}
+.callout.green p{color:var(--green-900)}
+
+/* форма */
+.form-wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+@media(max-width:920px){.form-wrap{grid-template-columns:1fr;gap:36px}}
+form{display:grid;gap:20px}
+.field label{
+  display:block;font-size:.86rem;text-transform:uppercase;letter-spacing:.06em;
+  color:var(--green-700);font-weight:700;margin-bottom:8px;
+}
+.field input,.field select,.field textarea{
+  width:100%;padding:14px 16px;border:1px solid var(--line);border-radius:8px;
+  font-family:inherit;font-size:1rem;background:var(--white);color:var(--ink);
+  transition:border .2s,box-shadow .2s;line-height:1.5;
+}
+.field input:focus,.field select:focus,.field textarea:focus{
+  outline:none;border-color:var(--green-500);box-shadow:0 0 0 4px rgba(65,127,87,.14);
+}
+.field textarea{resize:vertical;min-height:120px}
+.btn{
+  display:inline-block;background:var(--green-700);color:#fff;border:none;
+  padding:16px 30px;border-radius:8px;font-size:1rem;font-weight:700;
+  cursor:pointer;letter-spacing:.01em;transition:background .2s,transform .15s;
+  font-family:inherit;text-align:center;
+}
+.btn:hover{background:var(--green-900);transform:translateY(-1px);text-decoration:none;color:#fff}
+.btn:active{transform:translateY(0)}
+.btn.ghost{background:transparent;color:var(--green-700);border:2px solid var(--green-700)}
+.btn.ghost:hover{background:var(--green-100);color:var(--green-900)}
+.btn.wa{background:#25D366;color:#fff}
+.btn.wa:hover{background:#1eb457;color:#fff}
+.contact-info .row{display:flex;gap:14px;align-items:flex-start;margin-bottom:22px}
+.contact-info .ico{
+  width:44px;height:44px;border-radius:50%;background:var(--green-100);color:var(--green-700);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:800;font-size:1.1rem;
+}
+.contact-info .row b{
+  color:var(--green-900);display:block;font-size:.85rem;text-transform:uppercase;
+  letter-spacing:.06em;font-weight:700;margin-bottom:2px;
+}
+.contact-info .row span{color:var(--ink-soft);font-size:1.02rem}
+.contact-info .row span a{color:var(--green-700);font-weight:600}
+.contact-info .row span a:hover{color:var(--green-900)}
+
+footer{background:var(--green-900);color:#a9c2b5;padding:48px 0;font-size:.95rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px;align-items:center}
+footer a{color:#dfeae1}
+footer a:hover{color:#fff;text-decoration:underline}
+
+.eyebrow{
+  font-size:.84rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--green-500);font-weight:800;margin-bottom:12px;
+}
+.section-intro{max-width:820px;margin-bottom:42px}
+.section-intro p{font-size:1.06rem}
+
+@media(max-width:600px){
+  body{font-size:17px}
+  section{padding:56px 0}
+  .hero{padding:64px 0 56px}
+  .wrap{padding:0 20px}
+  th,td{padding:12px 12px;font-size:.92rem}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand">АГРО<span>ИНВЕСТ</span> · ТЭО 2026</div>
+    <ul>
+      <li><a href="#scenarios">Сценарии</a></li>
+      <li><a href="#capex">CAPEX</a></li>
+      <li><a href="#model">Модель</a></li>
+      <li><a href="#pnl">P&amp;L</a></li>
+      <li><a href="#tax">Налоги</a></li>
+      <li><a href="#infrastructure">Инфраструктура</a></li>
+      <li><a href="#risk">Риски</a></li>
+      <li><a href="#contact">Контакты</a></li>
+    </ul>
+    <button class="burger" id="burger" aria-label="Меню" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#scenarios">Сценарии</a>
+    <a href="#capex">CAPEX</a>
+    <a href="#model">Финансовая модель</a>
+    <a href="#pnl">P&amp;L</a>
+    <a href="#tax">Налоги</a>
+    <a href="#infrastructure">Инфраструктура и сбыт</a>
+    <a href="#risk">Риски</a>
+    <a href="#contact">Контакты</a>
+  </div>
+</header>
+
+<!-- ПЕРВЫЙ ЭКРАН -->
+<section class="hero">
+  <div class="wrap">
+    <span class="tag">Технико-экономическое обоснование · 2026</span>
+    <h1>Молочно-товарный комплекс на 200 голов КРС (алатауская порода) с переработкой навоза и биогазом</h1>
+    <p class="lead">Производство молока, мяса и жидкого органического удобрения. 130 дойных коров, 50 га пастбищ, биогазовый блок 100 кВт. Расчёт по реальным ценам 2026 года и с учётом субсидий.</p>
+    <div class="hero-stats">
+      <div class="stat"><div class="n">200 голов</div><div class="l">общее поголовье</div></div>
+      <div class="stat"><div class="n">428 млн ₸</div><div class="l">выручка в год</div></div>
+      <div class="stat"><div class="n">~235 млн ₸</div><div class="l">чистая прибыль</div></div>
+      <div class="stat"><div class="n">2,0–2,2 года</div><div class="l">окупаемость</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- СЦЕНАРИИ -->
+<section id="scenarios" class="alt">
+  <div class="wrap">
+    <div class="section-intro">
+      <div class="eyebrow">Три альтернативы</div>
+      <h2>Сценарии капитальных вложений</h2>
+      <p>Базовый и премиум-сценарии сохранены для сравнения. Целевой расчёт — <strong>Оптимальный сценарий на 200 голов с алатауской породой и биогазовым блоком 100 кВт</strong>. Все суммы — с учётом субсидий 2026 года.</p>
+    </div>
+    <div class="grid-3">
+      <div class="card">
+        <span class="badge">Базовый (справочно)</span>
+        <div class="price">135 млн ₸</div>
+        <div class="sub">Эконом · 100 голов · без биогаза</div>
+        <ul>
+          <li>Аренда земли, отдалённые районы</li>
+          <li>Лёгкие металлоконструкции, без утепления</li>
+          <li>Бюджетные насосы, простой биореактор</li>
+          <li>Товарный скот по 400 000 ₸/гол.</li>
+          <li>Удобрение: 120 000 л/год</li>
+        </ul>
+        <div class="foot">Выручка: <strong>173 млн ₸</strong><br>Прибыль: <strong>131 млн ₸</strong><br>Окупаемость: <strong>~1,03 года</strong><br><em style="color:var(--red);font-size:.85rem">Не рекомендуется: без биогаза, низкая устойчивость</em></div>
+      </div>
+      <div class="card optimal">
+        <span class="badge" style="background:var(--green-700);color:#fff">Целевой (200 голов)</span>
+        <div class="price">~496 млн ₸</div>
+        <div class="sub">Сбалансированный · алатауская · биогаз 100 кВт</div>
+        <ul>
+          <li>Выкуп земли с логистикой</li>
+          <li>Утеплённый коровник, лагуны, щелевые полы</li>
+          <li>Биогаз 100 кВт + доильный зал + сепаратор</li>
+          <li><strong>150 гол. алатауской (130 коров + 20 нетелей)</strong></li>
+          <li><strong>Субсидия на скот: −39 млн ₸</strong></li>
+          <li>Удобрение: 360 000 л/год по 500 ₸/л</li>
+        </ul>
+        <div class="foot">Выручка: <strong>428 млн ₸</strong><br>Прибыль: <strong>~235 млн ₸</strong><br>Окупаемость: <strong>~2,0–2,2 года</strong></div>
+      </div>
+      <div class="card premium">
+        <span class="badge" style="background:#f5ead2;color:var(--gold)">Премиум (справочно)</span>
+        <div class="price">460 млн ₸</div>
+        <div class="sub">100 голов · роботизация · без субсидий</div>
+        <ul>
+          <li>Массив у рынков сбыта, коммуникации</li>
+          <li>Климат-контроль, автоматика</li>
+          <li>Роботы-дояры, биогазовая электростанция</li>
+          <li>Элитный импорт по 900 000 ₸/гол.</li>
+          <li>Удобрение: 240 000 л/год</li>
+        </ul>
+        <div class="foot">Выручка: <strong>389 млн ₸</strong><br>Прибыль: <strong>323 млн ₸</strong><br>Окупаемость: <strong>~1,42 года</strong><br><em style="color:var(--amber);font-size:.85rem">Требует капитальных утеплённых помещений</em></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAPEX -->
+<section id="capex">
+  <div class="wrap">
+    <div class="section-intro">
+      <div class="eyebrow">Капитальные затраты · 200 голов</div>
+      <h2>Сводная таблица CAPEX (целевой сценарий)</h2>
+      <p>Сметы — по реальным расценкам 2026 года: строительство коровников (ЛСТК/ВОС), каталоги биогазовых установок, рыночные цены на алатауский скот и субсидии Минсельхоза РК.</p>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr><th>Статья затрат</th><th class="num">Сумма (₸)</th><th>Обоснование / источник</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Земля (50 га пастбищ + 1 га база)</td><td class="num">80 000 000</td><td>Выкуп с логистикой, кадастровая стоимость 2026</td></tr>
+          <tr><td>Строительство (коровник на 200 гол., лагуны, родильное)</td><td class="num">200 000 000</td><td>Быстровозводимые ЛСТК/ВОС, СМР по аналогам 2026</td></tr>
+          <tr><td>Оборудование (доение, насосы, сепаратор, климат)</td><td class="num">90 000 000</td><td>Доильный зал + линия сепарации + автоматика</td></tr>
+          <tr><td><strong>Племенной скот: 150 гол. алатауской</strong></td><td class="num">75 000 000</td><td><strong>500 000 ₸/гол.</strong> (реальная цена 2026)</td></tr>
+          <tr><td><strong>Субсидия на племенной скот</strong></td><td class="num" style="color:var(--green-700);font-weight:700">−39 000 000</td><td><strong>260 000 ₸/гол.</strong> для отечественного племенного скота</td></tr>
+          <tr><td><strong>Биогазовая установка 100 кВт</strong></td><td class="num">75 000 000</td><td>Ферментер + когенератор + газгольдер (50–100 млн ₸)</td></tr>
+          <tr><td>Проектирование, разрешения, пусконаладка</td><td class="num">15 000 000</td><td>Расценки проектных организаций 2026</td></tr>
+          <tr class="total"><td>ИТОГО CAPEX (чистый, с субсидией)</td><td class="num">~496 000 000 ₸</td><td>Без субсидии: ~535 млн ₸</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout green" style="margin-top:24px">
+      <h4>Экономия от субсидии</h4>
+      <p>Субсидия <strong>260 000 ₸/гол.</strong> на 150 голов алатауской породы даёт <strong>39 млн ₸</strong> прямой экономии CAPEX. Без неё проект остаётся рентабельным, но окупаемость растягивается на ~0,3–0,5 года.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ФИНАНСОВАЯ МОДЕЛЬ -->
+<section id="model" class="alt">
+  <div class="wrap">
+    <div class="section-intro">
+      <div class="eyebrow">Доходная часть · 200 голов</div>
+      <h2>Финансовая модель за год</h2>
+      <p>Структура стада: <strong>130 дойных коров</strong> (65%), ~35 голов сухостойных/нетелей, ~35 бычков на откорме. Удой алатауской породы — <strong>5 000 л/гол./год</strong>. Цена молока <strong>300 ₸/л</strong> + субсидия <strong>45 ₸/л</strong>. Удобрение — <strong>500 ₸/л</strong> (рыночный диапазон 500–900 ₸/л).</p>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr><th>Показатель</th><th class="num">Расчёт</th><th class="num">Сумма в год (₸)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Молоко (130 гол. × 5 000 л × 345 ₸/л)</td><td class="num">130 × 5 000 × 345</td><td class="num">224 250 000</td></tr>
+          <tr><td>Мясо (35 бычков × 450 кг × 1 500 ₸/кг)</td><td class="num">35 × 450 × 1 500</td><td class="num">23 625 000</td></tr>
+          <tr><td>Удобрение (360 000 л × 500 ₸/л)</td><td class="num">360 000 × 500</td><td class="num">180 000 000</td></tr>
+          <tr class="total"><td>ИТОГО ВЫРУЧКА</td><td class="num"></td><td class="num">~427 875 000 ₸</td></tr>
+          <tr><td>Годовые операционные расходы (OPEX)</td><td class="num">~540 000 ₸/гол. × 200</td><td class="num">~108 000 000</td></tr>
+          <tr><td>Налоги (НДС со льготой СХТП 80%, КПН 3%, соцналог)</td><td class="num">~10–12% от выручки</td><td class="num">~42–48 000 000</td></tr>
+          <tr class="total"><td>ЧИСТАЯ ПРИБЫЛЬ</td><td class="num"></td><td class="num">~235 000 000 ₸</td></tr>
+          <tr><td>Срок окупаемости (при 100% сбыте)</td><td class="num">496 млн ₸ / 235 млн ₸</td><td class="num">~2,1 года</td></tr>
+          <tr><td>Срок окупаемости (при 70% сбыте удобрения)</td><td class="num">496 млн ₸ / ~200 млн ₸</td><td class="num">~2,5 года</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout">
+      <h4>Ключевой драйвер доходности</h4>
+      <p>При цене <strong>500 ₸/л</strong> удобрение даёт <strong>42% выручки</strong> (180 из 428 млн ₸). Молоко — 52%, мясо — 6%. Проект остаётся высокорентабельным, но <strong>зависимость от сбыта удобрения высока</strong>: при падении продаж вдвое прибыль сокращается на ~90 млн ₸/год.</p>
+    </div>
+  </div>
+</section>
+
+<!-- P&L -->
+<section id="pnl">
+  <div class="wrap">
+    <div class="section-intro">
+      <div class="eyebrow">Помесячный P&amp;L · Целевой сценарий</div>
+      <h2>Отчёт о прибылях и убытках (сезонность)</h2>
+      <p>Пик спроса на удобрения — апрель–июнь (посевная). Зимой (декабрь–февраль) реализация удобрения падает до минимума, но молочная выручка стабилизирует денежный поток.</p>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Месяц</th>
+            <th class="num">Выручка (₸)</th>
+            <th class="num">OPEX (₸)</th>
+            <th class="num">Налоги (₸)</th>
+            <th class="num">Чистая прибыль (₸)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Январь</td><td class="num">24 500 000</td><td class="num">9 000 000</td><td class="num">3 500 000</td><td class="num">12 000 000</td></tr>
+          <tr><td>Февраль</td><td class="num">26 200 000</td><td class="num">9 000 000</td><td class="num">3 800 000</td><td class="num">13 400 000</td></tr>
+          <tr><td>Март</td><td class="num">34 800 000</td><td class="num">9 200 000</td><td class="num">5 200 000</td><td class="num">20 400 000</td></tr>
+          <tr><td>Апрель</td><td class="num">42 100 000</td><td class="num">9 400 000</td><td class="num">6 400 000</td><td class="num">26 300 000</td></tr>
+          <tr><td>Май</td><td class="num">44 500 000</td><td class="num">9 500 000</td><td class="num">6 800 000</td><td class="num">28 200 000</td></tr>
+          <tr><td>Июнь</td><td class="num">40 200 000</td><td class="num">9 300 000</td><td class="num">6 100 000</td><td class="num">24 800 000</td></tr>
+          <tr><td>Июль</td><td class="num">36 800 000</td><td class="num">9 200 000</td><td class="num">5 600 000</td><td class="num">22 000 000</td></tr>
+          <tr><td>Август</td><td class="num">35 500 000</td><td class="num">9 100 000</td><td class="num">5 400 000</td><td class="num">21 000 000</td></tr>
+          <tr><td>Сентябрь</td><td class="num">37 200 000</td><td class="num">9 200 000</td><td class="num">5 700 000</td><td class="num">22 300 000</td></tr>
+          <tr><td>Октябрь</td><td class="num">33 500 000</td><td class="num">9 100 000</td><td class="num">5 100 000</td><td class="num">19 300 000</td></tr>
+          <tr><td>Ноябрь</td><td class="num">28 500 000</td><td class="num">9 000 000</td><td class="num">4 200 000</td><td class="num">15 300 000</td></tr>
+          <tr><td>Декабрь</td><td class="num">24 875 000</td><td class="num">9 000 000</td><td class="num">3 600 000</td><td class="num">12 275 000</td></tr>
+          <tr class="total"><td>ИТОГО</td><td class="num">~427 875 000</td><td class="num">~108 000 000</td><td class="num">~42 000 000</td><td class="num">~235 000 000</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout green" style="margin-top:32px">
+      <h4>Устойчивость в низкий сезон</h4>
+      <p>Даже в январе–феврале, когда удобрение продаётся минимально, молочная выручка (~18,7 млн ₸/мес.) и мясной контур покрывают OPEX и налоги, оставляя <strong>12–13 млн ₸ чистой прибыли</strong> в месяц. Это позволяет накапливать оборотные средства к весеннему пику.</p>
+    </div>
+  </div>
+</section>
+
+<!-- НАЛОГИ -->
+<section id="tax" class="alt">
+  <div class="wrap">
+    <div class="section-intro">
+      <div class="eyebrow">Республика Казахстан · 2026</div>
+      <h2>Налоговая модель</h2>
+      <p>Предприятие — плательщик НДС (порог 20 000 МРП = 86 500 000 ₸). Статус СХТП даёт право на уменьшение НДС на 80% и льготную ставку КПН 3%.</p>
+    </div>
+    <div class="grid-2">
+      <div>
+        <h3>НДС 16% с льготой СХТП (80%)</h3>
+        <div class="tbl-wrap" style="margin-top:16px">
+          <table style="min-width:0">
+            <tbody>
+              <tr><td>Начисленный НДС с реализации (~428 млн ₸)</td><td class="num">~59 000 000 ₸</td></tr>
+              <tr><td>Зачётный входящий НДС</td><td class="num">~8 000 000 ₸</td></tr>
+              <tr><td>Чистый НДС к уплате до льготы</td><td class="num">~51 000 000 ₸</td></tr>
+              <tr><td>Льгота СХТП (−80%)</td><td class="num">−40 800 000 ₸</td></tr>
+              <tr class="total"><td>Итоговый НДС к уплате</td><td class="num">~10 200 000 ₸</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div>
+        <h3>Нагрузка на ФОТ (10–12 сотрудников)</h3>
+        <div class="tbl-wrap" style="margin-top:16px">
+          <table style="min-width:0">
+            <tbody>
+              <tr><td>ФОТ (Gross) в месяц</td><td class="num">~3 500 000 ₸</td></tr>
+              <tr><td>ОПВ + ВОСМС + ИПН (удержания)</td><td class="num">~700 000 ₸/мес.</td></tr>
+              <tr><td>СО + СМС + СН (работодатель)</td><td class="num">~525 000 ₸/мес.</td></tr>
+              <tr><td>Расходы работодателя в месяц</td><td class="num">~4 025 000 ₸</td></tr>
+              <tr class="total"><td>Совокупные расходы на штат за год</td><td class="num">~48 300 000 ₸</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="callout" style="margin-top:32px">
+      <h4>Штатное расписание (10–12 человек)</h4>
+      <p>4 животновода-дояра · 2 оператора биокомплекса и теплицы · 1 тракторист-механизатор · 1 водитель-экспедитор · 2 сменных сторожа · 1 управляющий/бухгалтер/сбыт. Рост штата против 100 голов — за счёт второго оператора биогаза и дополнительных дояров.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ИНФРАСТРУКТУРА И СБЫТ -->
+<section id="infrastructure">
+  <div class="wrap">
+    <div class="section-intro">
+      <div class="eyebrow">Инфраструктура и сбыт</div>
+      <h2>Ключевые аспекты операционной деятельности</h2>
+      <p>Помимо производственных и финансовых показателей, для успешного запуска и работы комплекса необходимо решить ряд вопросов по сбыту, хранению и соответствию нормативным требованиям.</p>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <h3>🥛 Каналы сбыта и консервация молока</h3>
+        <p><strong>Основные потребители:</strong></p>
+        <ul>
+          <li><strong>Молокоперерабатывающие заводы.</strong> Крупные проекты, как строящийся сырный завод в Конаеве (мощность 41 тыс. тонн, потребность в сырье — <strong>91,7 тыс. тонн молока в год</strong>), создают гарантированный спрос для фермеров.</li>
+          <li><strong>Агрохолдинги.</strong> Вертикально интегрированные компании (например, «Динара Групп») закупают сырьё для собственных перерабатывающих мощностей.</li>
+        </ul>
+        <p><strong>Способы консервации (при избытке или сбоях в логистике):</strong></p>
+        <ul>
+          <li><strong>Охлаждение:</strong> до +4 °C, хранение до 36 часов.</li>
+          <li><strong>Пастеризация:</strong> термическая обработка, продлевающая срок хранения на несколько дней.</li>
+          <li><strong>Сушка (сухое молоко):</strong> самый надёжный метод для долгосрочного хранения. Срок годности сухого обезжиренного молока — до <strong>3 лет</strong>.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>🔥 Биогаз: хранение и регулирование</h3>
+        <p><strong>Срок годности биогаза:</strong> как таковой отсутствует. Это производимый и сразу потребляемый энергоноситель. В газгольдере хранится оперативный запас, обычно равный <strong>~33% суточной выработки</strong>, для покрытия ночных нужд или пиков потребления.</p>
+        <p><strong>Лицензии и разрешения:</strong></p>
+        <ul>
+          <li><strong>Статус опасного объекта.</strong> Биогазовая установка (БГУ) признаётся опасным производственным объектом, что требует соблюдения промышленных норм и регистрации.</li>
+          <li><strong>Экологическая экспертиза.</strong> Обязательна для строительства и эксплуатации БГУ.</li>
+          <li><strong>Сертификация удобрения.</strong> С 1 января 2027 года дигестат будет подлежать обязательной сертификации по новому стандарту СТ РК. Ключевые требования — отсутствие патогенов (сальмонелла, гельминты) и соответствие нормам по тяжёлым металлам.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>💰 Налоги и водоснабжение</h3>
+        <p><strong>Налоговый режим (с 2026 г.):</strong></p>
+        <ul>
+          <li><strong>КПН:</strong> льготная ставка <strong>3%</strong> для сельхозтоваропроизводителей.</li>
+          <li><strong>НДС:</strong> дополнительный зачёт (льгота) увеличен до <strong>80%</strong>. Вы будете платить лишь 20% от начисленного налога.</li>
+          <li><strong>ИПН (для КФХ):</strong> специальный режим со ставкой <strong>0,5%</strong>.</li>
+          <li><strong>Порог для НДС:</strong> обязательная постановка на учёт при обороте свыше <strong>20 000 МРП (86,5 млн ₸)</strong> в год. Ваш проект превышает этот порог.</li>
+        </ul>
+        <p><strong>Скважина:</strong> <strong>необходима.</strong> При использовании для водопоя на отгонных пастбищах разрешение на специальное водопользование <strong>не требуется</strong>. Однако скважина должна быть официально оформлена, оснащена приборами учёта и соответствовать техническим нормам.</p>
+      </div>
+      <div class="card">
+        <h3>⚠️ Новые риски и их митигация</h3>
+        <p><strong>Риск сбыта молока.</strong> Зависимость от ограниченного числа переработчиков. <strong>Митигация:</strong> диверсификация каналов (заводы, собственный цех, розница), а также рассмотрение установки для сушки молока как способа пережить периоды низких закупочных цен.</p>
+        <p><strong>Регуляторный риск (удобрения).</strong> Несоответствие нового продукта стандартам СТ РК с 2027 года. <strong>Митигация:</strong> лабораторные анализы дигестата уже на этапе проектирования, сотрудничество с аккредитованными лабораториями для своевременной сертификации.</p>
+        <p><strong>Риск водоснабжения.</strong> Недостаточный дебит скважины или проблемы с качеством воды. <strong>Митигация:</strong> гидрогеологические изыскания до строительства, бурение с запасом по мощности, установка систем водоподготовки.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- РИСКИ -->
+<section id="risk" class="dark">
+  <div class="wrap">
+    <div class="section-intro">
+      <div class="eyebrow" style="color:#bdd4c4">Заключение департамента риск-менеджмента</div>
+      <h2>Оценка рисков проекта (200 голов)</h2>
+      <p style="color:#c8d8cd">Проект стал устойчивее за счёт масштаба и биогаза, но <strong style="color:#fff">главный риск не изменился — сбыт удобрения по 500 ₸/л</strong>. При 200 головах зависимость от этой статьи даже выросла: она даёт 42% выручки.</p>
+    </div>
+    <div class="risk-grid">
+      <div class="risk-card high">
+        <h4>Ценовой риск на удобрение <span class="risk-level lvl-high">Высокий</span></h4>
+        <p>500 ₸/л — нижняя граница рыночного диапазона (500–900 ₸/л). Дальнейшее снижение до 350–400 ₸/л обрушит выручку на 20–30%.</p>
+        <div class="mit"><b>Митигация:</b> пилотные контракты с 2–3 агрохолдингами до старта; стресс-тест при 400 ₸/л заложить в финансовую модель; сертификация как органоминерального удобрения.</div>
+      </div>
+      <div class="risk-card high">
+        <h4>Риск сбыта 360 000 л/год <span class="risk-level lvl-high">Высокий</span></h4>
+        <p>Для 200 голов требуется <strong>80–120 постоянных B2B-клиентов</strong> (вдвое больше, чем на 100 головах). В первый год выйти на 100% физически невозможно.</p>
+        <div class="mit"><b>Митигация:</b> ramp-up 30% → 60% → 100% за 18 месяцев; резерв оборотных средств 20–25 млн ₸ на 3 месяца; диверсификация каналов (опт + розница + собственное применение).</div>
+      </div>
+      <div class="risk-card high">
+        <h4>Биологические риски КРС <span class="risk-level lvl-high">Высокий</span></h4>
+        <p>Алатауская порода устойчива к морозам, но эпизоотии (ящур, лейкоз) остаются угрозой. Одна вспышка обнуляет молочную выручку на 2–4 месяца.</p>
+        <div class="mit"><b>Митигация:</b> страхование поголовья; ветеринарный контракт 2 раза/мес.; карантин при вводе; закрытый режим фермы.</div>
+      </div>
+      <div class="risk-card med">
+        <h4>Технологический риск биогаза <span class="risk-level lvl-med">Средний</span></h4>
+        <p>Выход биогаза зависит от стабильности температуры и качества сырья. Зимой часть газа уходит на подогрев реактора, снижая полезный выход.</p>
+        <div class="mit"><b>Митигация:</b> утепление реактора; резервный газовый котёл; контракт на обслуживание с поставщиком; солнечные коллекторы для летнего подогрева.</div>
+      </div>
+      <div class="risk-card med">
+        <h4>Валютный риск <span class="risk-level lvl-med">Средний</span></h4>
+        <p>Биогазовое оборудование и доильный зал частично импортные. Девальвация тенге на 15–20% добавит 10–15 млн ₸ к CAPEX.</p>
+        <div class="mit"><b>Митигация:</b> фиксация цен в тенге; предоплата 50–70%; резерв 5–8% от CAPEX; лизинг в тенге.</div>
+      </div>
+      <div class="risk-card med">
+        <h4>Налоговые изменения <span class="risk-level lvl-med">Средний</span></h4>
+        <p>Отмена 80% льготы по НДС для СХТП добавит ~40,8 млн ₸ налоговой нагрузки в год.</p>
+        <div class="mit"><b>Митигация:</b> юридическое сопровождение статуса СХТП; стресс-сценарий без льготы; мониторинг Налогового кодекса ежеквартально.</div>
+      </div>
+      <div class="risk-card low">
+        <h4>Операционный / кадровый <span class="risk-level lvl-low">Низкий</span></h4>
+        <p>Штат 10–12 человек для 200 голов — реалистично. Риск выпадения ключевых сотрудников снижен за счёт резерва.</p>
+        <div class="mit"><b>Митигация:</b> cross-training; проживание на территории; бонусы за выслугу.</div>
+      </div>
+      <div class="risk-card low">
+        <h4>Логистика <span class="risk-level lvl-low">Низкий</span></h4>
+        <p>Доставка 360 000 л удобрения требует 2–3 рейсов в неделю. Удалённость влияет на себестоимость (5–7 ₸/л на 100 км).</p>
+        <div class="mit"><b>Митигация:</b> привязка к транспортным коридорам; контракт на объёмную перевозку; собственный бензовоз при масштабировании.</div>
+      </div>
+    </div>
+
+    <h3 style="margin-top:56px;color:#fff;font-size:1.35rem">Стресс-тест: чистая прибыль при отклонениях</h3>
+    <div class="sens">
+      <div class="sens-row">
+        <div class="lbl">Базовый план (100% сбыт · 500 ₸/л)</div>
+        <div class="bar"><span style="width:100%"></span></div>
+        <div class="val">~235 млн ₸</div>
+      </div>
+      <div class="sens-row">
+        <div class="lbl">Сбыт удобрения 70%</div>
+        <div class="bar"><span style="width:85%"></span></div>
+        <div class="val">~200 млн ₸</div>
+      </div>
+      <div class="sens-row">
+        <div class="lbl">Сбыт удобрения 50%</div>
+        <div class="bar"><span style="width:64%"></span></div>
+        <div class="val">~150 млн ₸</div>
+      </div>
+      <div class="sens-row">
+        <div class="lbl">Цена удобрения 400 ₸/л (при 100% сбыте)</div>
+        <div class="bar"><span style="width:72%"></span></div>
+        <div class="val">~170 млн ₸</div>
+      </div>
+      <div class="sens-row">
+        <div class="lbl">Сбыт 50% + цена 400 ₸/л (жёсткий стресс)</div>
+        <div class="bar"><span style="width:36%"></span></div>
+        <div class="val">~85 млн ₸</div>
+      </div>
+      <div class="sens-row">
+        <div class="lbl">Отмена льготы НДС СХТП</div>
+        <div class="bar"><span style="width:85%"></span></div>
+        <div class="val">~200 млн ₸</div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:36px;background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.18)">
+      <h4 style="color:#e3c07c">Вердикт риск-департамента</h4>
+      <p style="color:#d6e2da">Проект на 200 голов <b style="color:#fff">финансово устойчивее</b> версии на 100 голов: биогаз снижает OPEX, субсидия уменьшает CAPEX, а масштаб распределяет постоянные затраты. Но <b style="color:#fff">зависимость от сбыта удобрения выросла до 42% выручки</b>. Даже в жёстком стрессе (сбыт 50% + цена 400 ₸/л) проект остаётся прибыльным (~85 млн ₸/год), но окупаемость растягивается до <b style="color:#fff">4–5 лет</b>. Рекомендуемый резерв оборотных средств на старте — <b style="color:#fff">20–25 млн ₸</b> сверх CAPEX.</p>
+    </div>
+  </div>
+</section>
+
+<!-- КОНТАКТЫ -->
+<section id="contact" class="alt">
+  <div class="wrap">
+    <div class="section-intro">
+      <div class="eyebrow">Обратная связь</div>
+      <h2>Связаться с нами</h2>
+      <p>Оставьте заявку — уточним детали проекта, адаптируем модель под ваш регион и подготовим индивидуальное коммерческое предложение.</p>
+    </div>
+    <div class="form-wrap">
+      <form id="contactForm" novalidate>
+        <div class="field">
+          <label for="name">Имя</label>
+          <input type="text" id="name" name="name" placeholder="Ваше имя" required>
+        </div>
+        <div class="field">
+          <label for="phone">Телефон</label>
+          <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" required>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com">
+        </div>
+        <div class="field">
+          <label for="scenario">Интересующий сценарий</label>
+          <select id="scenario" name="scenario">
+            <option value="">— выберите —</option>
+            <option>Целевой: 200 голов, алатауская, биогаз</option>
+            <option>Базовый (справочно)</option>
+            <option>Премиум (справочно)</option>
+            <option>Консультация / расчёт под регион</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="message">Сообщение</label>
+          <textarea id="message" name="message" placeholder="Кратко о вашем проекте или вопросе"></textarea>
+        </div>
+        <button type="submit" class="btn">Отправить заявку</button>
+        <div id="formStatus" style="font-size:.98rem;color:var(--green-700);min-height:1.4em"></div>
+      </form>
+      <div class="contact-info">
+        <div class="row">
+          <div class="ico">☎</div>
+          <div>
+            <b>Телефон / WhatsApp</b>
+            <span><a href="tel:+77777717707">+7 (777) 771-77-07</a></span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="ico">✉</div>
+          <div>
+            <b>Email</b>
+            <span><a href="mailto:info@agroinvest.kz">info@agroinvest.kz</a></span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="ico">◷</div>
+          <div>
+            <b>Часы работы</b>
+            <span>Пн–Пт, 09:00 – 18:00 (Астана)</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="ico">⚑</div>
+          <div>
+            <b>Регион</b>
+            <span>Республика Казахстан</span>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin:8px 0 24px">
+          <a class="btn wa" style="flex:1;min-width:160px"
+             href="https://wa.me/77777717707?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%A2%D0%AD%D0%9E%20%D0%BD%D0%B0%20200%20%D0%B3%D0%BE%D0%BB%D0%BE%D0%B2%20%D0%9A%D0%A0%D0%A1."
+             target="_blank" rel="noopener">WhatsApp</a>
+          <a class="btn ghost" style="flex:1;min-width:160px" href="tel:+77777717707">Позвонить</a>
+        </div>
+
+        <div class="callout green" style="margin-top:8px">
+          <h4>Документы по запросу</h4>
+          <p>Полная версия ТЭО на 200 голов, помесячный P&amp;L, стресс-тесты и финансовая модель в Excel — предоставляются по запросу после короткого брифинга.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 АгроИнвест · ТЭО на 200 голов КРС (алатауская) · Республика Казахстан</div>
+    <div><a href="#contact">Обратная связь</a> · <a href="#risk">Риски</a> · <a href="#scenarios">Сценарии</a></div>
+  </div>
+</footer>
+
+<script>
+/* БУРГЕР-МЕНЮ */
+(function(){
+  var burger = document.getElementById('burger');
+  var menu = document.getElementById('mobileMenu');
+  if(!burger || !menu) return;
+  burger.addEventListener('click', function(){
+    var open = menu.classList.toggle('open');
+    burger.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  menu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      menu.classList.remove('open');
+      burger.classList.remove('open');
+      burger.setAttribute('aria-expanded','false');
+    });
+  });
+})();
+
+/* ПОДСВЕТКА АКТИВНОГО ПУНКТА МЕНЮ */
+(function(){
+  var sections = Array.prototype.slice.call(document.querySelectorAll('section[id]'));
+  var desktopLinks = Array.prototype.slice.call(document.querySelectorAll('.nav ul a'));
+  if(!sections.length) return;
+  function setActive(){
+    var y = window.scrollY + 120;
+    var cur = sections[0].id;
+    sections.forEach(function(s){ if(s.offsetTop <= y) cur = s.id; });
+    desktopLinks.forEach(function(a){
+      a.classList.toggle('active', a.getAttribute('href') === '#' + cur);
+    });
+  }
+  window.addEventListener('scroll', setActive, {passive:true});
+  window.addEventListener('resize', setActive);
+  setActive();
+})();
+
+/* ОТПРАВКА ФОРМЫ — открывает WhatsApp с готовым сообщением */
+document.getElementById('contactForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  var name = this.name.value.trim();
+  var phone = this.phone.value.trim();
+  var email = this.email.value.trim();
+  var scenario = this.scenario.value;
+  var message = this.message.value.trim();
+  var status = document.getElementById('formStatus');
+
+  if(!name || !phone){
+    status.style.color = '#953026';
+    status.textContent = 'Пожалуйста, заполните имя и телефон.';
+    return;
+  }
+
+  var lines = [
+    'Заявка с сайта АгроИнвест (ТЭО 200 голов КРС)',
+    'Имя: ' + name,
+    'Телефон: ' + phone
+  ];
+  if(email) lines.push('Email: ' + email);
+  if(scenario) lines.push('Сценарий: ' + scenario);
+  if(message) lines.push('Сообщение: ' + message);
+
+  var url = 'https://wa.me/77777717707?text=' + encodeURIComponent(lines.join('\n'));
+
+  status.style.color = '#28563c';
+  status.innerHTML = 'Заявка сформирована. Открывается WhatsApp…<br><a href="' + url + '" target="_blank" rel="noopener" style="font-weight:700">Если окно не открылось — нажмите сюда</a>';
+
+  window.open(url, '_blank', 'noopener');
+  setTimeout(function(){ this.reset && this.reset(); }.bind(this), 400);
+});
+</script>
+
+</body>
+</html>
